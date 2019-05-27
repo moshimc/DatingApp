@@ -14,7 +14,7 @@ export class NavComponent implements OnInit {
   // will store username and pw
   model: any = {};
 
-  constructor(public authService: AuthService, private alertify: AlertifyService, 
+  constructor(public authService: AuthService, private alertify: AlertifyService,
     private router: Router) { }
 
   ngOnInit() {
