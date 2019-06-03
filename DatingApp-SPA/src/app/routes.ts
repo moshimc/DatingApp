@@ -12,7 +12,7 @@ import { MemberEditResolver } from './_resolvers/member-edit.resolver';
 import { PreventUnsavedChanges } from './_guards/prevent-unsaved-changes.guard';
 
 export const appRoutes: Routes = [
-    { path: '', component: HomeComponent},
+    { path: 'home', component: HomeComponent},
     {
         path: '',
         runGuardsAndResolvers: 'always',
