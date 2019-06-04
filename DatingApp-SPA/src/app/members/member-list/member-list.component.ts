@@ -18,9 +18,6 @@ export class MemberListComponent implements OnInit {
   userParams: any = {};
   pagination: Pagination;
 
-  testDate: Date;
-
-
   constructor(private userService: UserService, private alertify: AlertifyService,
     private route: ActivatedRoute) { }
 
