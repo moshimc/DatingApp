@@ -26,11 +26,17 @@ namespace DatingApp.API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetUsers()
+        // by adding [FromQuery] we can send it as empty and it'll use default values
+        public async Task<IActionResult> GetUsers([FromQuery]UserParams userParams)
         {
-            var users = await _repo.GetUsers();
+            var users = await _repo.GetUsers(userParams);
 
             var userToReturn = _mapper.Map<IEnumerable<UserForListDto>>(users);
+
+            // because we're inside API controller have have access to the response
+            // and because we wrote an extension method we can make use of pagination
+            Response.AddPagination(users.CurrentPage, users.PageSize, 
+                users.TotalCount, users.TotalPages);
 
             return Ok(userToReturn);
         }
